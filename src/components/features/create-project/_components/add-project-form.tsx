@@ -17,20 +17,14 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from '@/components/ui/use-toast'
 import { ProjectDto, projectSchema } from '@/schemas/project-schema'
 import { Textarea } from '@/components/ui/textarea'
-import { Checkbox } from '@/components/ui/checkbox'
 import { stacks } from '@/static/stacks'
+import { StackModal } from './stack-modal'
 
 export const AddProjectForm = () => {
   const form = useForm<ProjectDto>({
     resolver: zodResolver(projectSchema),
     defaultValues: {
       userId: '1646456464564564644',
-      name: 'Projeto',
-      position: 10,
-      description: 'Descrição do projeto',
-      bannerUrl: 'https://via.placeholder.com/150',
-      thumbnailUrl: 'https://via.placeholder.com/150',
-      deployedUrl: 'https://via.placeholder.com/150',
       githubUrl: 'https://github.com/renovatt',
       stacks: [
         {
@@ -39,6 +33,8 @@ export const AddProjectForm = () => {
       ],
     },
   })
+
+  const stacksList = form.watch('stacks')
 
   const onSubmit = form.handleSubmit((values) => {
     console.log(values)
@@ -55,29 +51,26 @@ export const AddProjectForm = () => {
   return (
     <Form {...form}>
       <form
-        action=""
         onSubmit={onSubmit}
-        className="flex size-full flex-col items-center justify-center md:w-1/2"
+        className="flex size-full flex-col items-center justify-center"
       >
-        <section className="flex size-full flex-col items-center justify-around ">
+        <section className="flex size-full flex-col items-center justify-around">
           <section className="size-full">
             <div className="mb-4">
               <FormLabel className="text-base font-bold">
-                Adicionar novo projeto
+                Adicione um novo projeto
               </FormLabel>
             </div>
+
             <div className="flex gap-4">
               <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem className="w-60">
-                    <FormLabel>Nome do projeto</FormLabel>
+                    <FormLabel>Nome</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="Informe o nome do projeto"
-                        {...field}
-                      />
+                      <Input placeholder="Portfolio - Renovatt" {...field} />
                     </FormControl>
                     <div className="h-5">
                       <FormMessage />
@@ -90,8 +83,8 @@ export const AddProjectForm = () => {
                 control={form.control}
                 name="position"
                 render={({ field }) => (
-                  <FormItem className="w-24">
-                    <FormLabel>Posiçao</FormLabel>
+                  <FormItem className="w-wull">
+                    <FormLabel>Posição</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
@@ -113,9 +106,12 @@ export const AddProjectForm = () => {
                 name="bannerUrl"
                 render={({ field }) => (
                   <FormItem className="w-full">
-                    <FormLabel>Banner</FormLabel>
+                    <FormLabel>Link do banner</FormLabel>
                     <FormControl>
-                      <Input placeholder="Informe a url do banner" {...field} />
+                      <Input
+                        placeholder="https://github.com/project-banner.png"
+                        {...field}
+                      />
                     </FormControl>
                     <div className="h-5">
                       <FormMessage />
@@ -129,10 +125,10 @@ export const AddProjectForm = () => {
                 name="thumbnailUrl"
                 render={({ field }) => (
                   <FormItem className="w-full">
-                    <FormLabel>Thumbnail</FormLabel>
+                    <FormLabel>Link da thumbnail</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Informe a url da thumbnail"
+                        placeholder="https://github.com/project-thumbnail.png"
                         {...field}
                       />
                     </FormControl>
@@ -148,9 +144,12 @@ export const AddProjectForm = () => {
                 name="githubUrl"
                 render={({ field }) => (
                   <FormItem className="w-full">
-                    <FormLabel>GitHub</FormLabel>
+                    <FormLabel>Link do projeto no gitHub</FormLabel>
                     <FormControl>
-                      <Input placeholder="Informe url do github" {...field} />
+                      <Input
+                        placeholder="https://github.com/renovatt/project-name"
+                        {...field}
+                      />
                     </FormControl>
                     <div className="h-5">
                       <FormMessage />
@@ -164,9 +163,9 @@ export const AddProjectForm = () => {
                 name="deployedUrl"
                 render={({ field }) => (
                   <FormItem className="w-full">
-                    <FormLabel>Deploy</FormLabel>
+                    <FormLabel>Link do deploy</FormLabel>
                     <FormControl>
-                      <Input placeholder="Informe a url do deploy" {...field} />
+                      <Input placeholder="https://renovatt.dev.br" {...field} />
                     </FormControl>
                     <div className="h-5">
                       <FormMessage />
@@ -197,75 +196,25 @@ export const AddProjectForm = () => {
             />
           </section>
 
-          <section className="flex size-full items-center justify-center">
-            <FormField
-              control={form.control}
-              name="stacks"
-              render={() => (
-                <FormItem>
-                  <div className="mb-4">
-                    <FormLabel>Stacks</FormLabel>
-                  </div>
+          {stacksList?.length && (
+            <section className="mb-4 flex w-full flex-col gap-2">
+              <div className="flex flex-wrap items-center justify-start gap-1">
+                {stacksList.map(({ iconUrl }) => (
+                  <img
+                    key={iconUrl}
+                    src={iconUrl}
+                    alt="stack-icon"
+                    className="size-5"
+                  />
+                ))}
+              </div>
+              <span className="text-xs text-secondary-foreground">
+                {stacksList?.length} stacks adicionadas
+              </span>
+            </section>
+          )}
 
-                  <div className="grid grid-cols-2 gap-2 overflow-y-auto scrollbar-hide md:grid-cols-3 lg:grid-cols-4">
-                    {stacks.map((item) => (
-                      <FormField
-                        key={item.id}
-                        control={form.control}
-                        name="stacks"
-                        render={({ field }) => {
-                          return (
-                            <FormItem
-                              key={item.id}
-                              className="flex flex-row items-center justify-start space-x-2 space-y-0 rounded-xl bg-secondary p-2"
-                            >
-                              <img
-                                src={`https://skillicons.dev/icons?i=${item.id}`}
-                                alt={item.label}
-                              />
-                              <FormControl>
-                                <Checkbox
-                                  checked={field.value?.some(
-                                    (value) =>
-                                      value.iconUrl ===
-                                      `https://skillicons.dev/icons?i=${item.id}`,
-                                  )}
-                                  onCheckedChange={(checked) => {
-                                    if (checked) {
-                                      field.onChange([
-                                        ...(field.value || []),
-                                        {
-                                          iconUrl: `https://skillicons.dev/icons?i=${item.id}`,
-                                        },
-                                      ])
-                                    } else {
-                                      field.onChange(
-                                        (field.value || []).filter(
-                                          (value) =>
-                                            value.iconUrl !==
-                                            `https://skillicons.dev/icons?i=${item.id}`,
-                                        ),
-                                      )
-                                    }
-                                  }}
-                                />
-                              </FormControl>
-                              <FormLabel className="cursor-pointer text-sm font-normal">
-                                {item.label}
-                              </FormLabel>
-                            </FormItem>
-                          )
-                        }}
-                      />
-                    ))}
-                  </div>
-                  <div className="h-5">
-                    <FormMessage />
-                  </div>
-                </FormItem>
-              )}
-            />
-          </section>
+          <StackModal />
         </section>
 
         <Button className="w-full" type="submit">

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Header } from '../_components/header'
+import { Header } from '@/components/features/header/_components'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,7 +14,7 @@ export default function MainLayout({
   return (
     <>
       <Header />
-      <main className="mt-24">{children}</main>
+      {children}
     </>
   )
 }

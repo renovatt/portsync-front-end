@@ -19,17 +19,21 @@ import { ProjectDto, projectSchema } from '@/schemas/project-schema'
 import { Textarea } from '@/components/ui/textarea'
 import { stacks } from '@/static/stacks'
 import { StackModal } from './stack-modal'
-import { projects } from '@/static/project'
 
-export const CreateAndEditProjectForm = ({ id }: { id?: string }) => {
-  const project = projects.find((project) => project.id === id)
+type CreateAndEditProjectProps = {
+  projectId?: string
+  project?: ProjectDto
+}
 
+export const CreateAndEditProjectForm = ({
+  projectId,
+  project,
+}: CreateAndEditProjectProps) => {
   const form = useForm<ProjectDto>({
     resolver: zodResolver(projectSchema),
-    defaultValues: id
+    defaultValues: projectId
       ? project
       : {
-          userId: '1646456464564564644',
           githubUrl: 'https://github.com/renovatt',
           stacks: [
             {
@@ -42,7 +46,6 @@ export const CreateAndEditProjectForm = ({ id }: { id?: string }) => {
   const stacksList = form.watch('stacks')
 
   const onSubmit = form.handleSubmit((values) => {
-    console.log(values)
     toast({
       title: 'Success',
       description: (
@@ -54,7 +57,14 @@ export const CreateAndEditProjectForm = ({ id }: { id?: string }) => {
   })
 
   const handleDeleteProject = (id: string) => {
-    console.log('delete project', id)
+    toast({
+      title: 'Success',
+      description: (
+        <pre className="mt-2 rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(id, null, 2)}</code>
+        </pre>
+      ),
+    })
   }
 
   return (
@@ -227,10 +237,10 @@ export const CreateAndEditProjectForm = ({ id }: { id?: string }) => {
         </section>
 
         <div className="mt-10 flex w-full gap-2 self-center md:mt-0 md:w-auto md:self-end">
-          {id && (
+          {projectId && (
             <Button
-              variant="destructive"
-              onClick={() => handleDeleteProject(id)}
+              variant="outline"
+              onClick={() => handleDeleteProject(projectId)}
               className="w-full md:w-60"
               type="button"
             >

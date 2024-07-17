@@ -10,7 +10,7 @@ export default function CardProject({
   bannerUrl,
 }: ProjectDto) {
   return (
-    <Link key={name} href={`edit-project/${id}`}>
+    <Link key={name} href={`edit/${id}`}>
       <div className="relative flex h-40 w-36 cursor-pointer flex-col items-start justify-center gap-4 overflow-hidden rounded-xl bg-accent p-2 shadow-xl transition-all ease-in hover:opacity-75 md:w-60">
         <FilePenLine className="absolute right-5 top-5 size-5" />
         <figure>

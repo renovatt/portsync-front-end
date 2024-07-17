@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Header } from '@/components/features/header/_components'
+import { Header } from '@/components/features/header/_components/header'
 
 export const metadata: Metadata = {
   title: 'Create Next App',

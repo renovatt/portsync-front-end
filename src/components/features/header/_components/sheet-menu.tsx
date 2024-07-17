@@ -7,18 +7,25 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { routes } from '@/static/routes'
+import { Bolt } from 'lucide-react'
 
 import Link from 'next/link'
 
-export function SheetMenu() {
+export default function SheetMenu() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">Projetos</Button>
+        <Button variant="outline" className="flex items-center gap-2">
+          <Bolt />
+          Gerenciar
+        </Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Projetos</SheetTitle>
+          <SheetTitle className="flex items-center gap-2">
+            <Bolt />
+            Gerenciar
+          </SheetTitle>
         </SheetHeader>
         <div className="grid gap-4 py-4">
           <nav>

@@ -1,4 +1,4 @@
-import { CreateAndEditProjectForm } from '@/components/features/create-and-edit-project-form/_components/create-and-edit-project-form'
+import { CreateAndEditProjectForm } from '@/components/features/create-and-edit-project/_components/create-and-edit-project-form'
 
 export default function page() {
   return (

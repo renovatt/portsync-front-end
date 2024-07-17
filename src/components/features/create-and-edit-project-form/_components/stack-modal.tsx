@@ -29,7 +29,7 @@ export function StackModal() {
   const formContext = useFormContext<ProjectDto>()
   return (
     <Dialog>
-      <DialogTrigger asChild className="my-2 w-full">
+      <DialogTrigger asChild className="my-2 w-full self-start md:w-60">
         <Button variant="outline">Adicionar stacks</Button>
       </DialogTrigger>
       <DialogContent className="size-full max-h-[90%] max-w-7xl overflow-auto py-5 scrollbar-hide">

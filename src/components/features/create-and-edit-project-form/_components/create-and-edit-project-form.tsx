@@ -19,19 +19,24 @@ import { ProjectDto, projectSchema } from '@/schemas/project-schema'
 import { Textarea } from '@/components/ui/textarea'
 import { stacks } from '@/static/stacks'
 import { StackModal } from './stack-modal'
+import { projects } from '@/static/project'
 
-export const AddProjectForm = () => {
+export const CreateAndEditProjectForm = ({ id }: { id?: string }) => {
+  const project = projects.find((project) => project.id === id)
+
   const form = useForm<ProjectDto>({
     resolver: zodResolver(projectSchema),
-    defaultValues: {
-      userId: '1646456464564564644',
-      githubUrl: 'https://github.com/renovatt',
-      stacks: [
-        {
-          iconUrl: `https://skillicons.dev/icons?i=${stacks[20].id}`,
+    defaultValues: id
+      ? project
+      : {
+          userId: '1646456464564564644',
+          githubUrl: 'https://github.com/renovatt',
+          stacks: [
+            {
+              iconUrl: `https://skillicons.dev/icons?i=${stacks[20].id}`,
+            },
+          ],
         },
-      ],
-    },
   })
 
   const stacksList = form.watch('stacks')
@@ -47,6 +52,10 @@ export const AddProjectForm = () => {
       ),
     })
   })
+
+  const handleDeleteProject = (id: string) => {
+    console.log('delete project', id)
+  }
 
   return (
     <Form {...form}>
@@ -217,9 +226,22 @@ export const AddProjectForm = () => {
           <StackModal />
         </section>
 
-        <Button className="w-full" type="submit">
-          Salvar
-        </Button>
+        <div className="mt-10 flex w-full gap-2 self-center md:mt-0 md:w-auto md:self-end">
+          {id && (
+            <Button
+              variant="destructive"
+              onClick={() => handleDeleteProject(id)}
+              className="w-full md:w-60"
+              type="button"
+            >
+              Apagar
+            </Button>
+          )}
+
+          <Button className="w-full md:w-60" type="submit">
+            Salvar
+          </Button>
+        </div>
       </form>
     </Form>
   )

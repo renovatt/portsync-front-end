@@ -1,4 +1,4 @@
-import { EditProjectForm } from '@/components/features/edit-project/_components/edit-project-form'
+import { CreateAndEditProjectForm } from '@/components/features/create-and-edit-project-form/_components/create-and-edit-project-form'
 
 type Props = {
   params: {
@@ -8,9 +8,9 @@ type Props = {
 
 export default function page({ params: { slug } }: Props) {
   return (
-    <section className="my-10 flex flex-col items-center justify-center px-4">
-      <article className="container flex size-full items-center justify-center">
-        <EditProjectForm id={slug} />
+    <section className="my-10 flex flex-col items-center justify-center">
+      <article className="container size-full">
+        <CreateAndEditProjectForm id={slug} />
       </article>
     </section>
   )

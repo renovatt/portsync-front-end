@@ -15,24 +15,44 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import { toast } from '@/components/ui/use-toast'
 import { SigninDto, signinSchema } from '@/schemas/signin-schema'
+import { signin } from '../actions/signin-action.service'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+import { LoaderCircle } from 'lucide-react'
 
 export const SigninForm = () => {
+  const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
+
   const form = useForm<SigninDto>({
     resolver: zodResolver(signinSchema),
   })
 
-  const onSubmit = form.handleSubmit((values) => {
-    console.log(values)
+  const onSubmit = form.handleSubmit(async (values) => {
+    setIsLoading(true)
+    const data = await signin(values)
+
+    if (!data.ok) {
+      toast({
+        title: 'Erro',
+        description: data.message,
+      })
+      setIsLoading(false)
+      return
+    }
+
     toast({
-      title: 'Success',
-      description: 'You have successfully signed in.',
+      title: 'Successo',
+      description: 'Bem vindo!',
     })
+
+    setIsLoading(false)
+    router.push('/projects')
   })
 
   return (
     <Form {...form}>
       <form
-        action=""
         onSubmit={onSubmit}
         className="flex w-full max-w-96 flex-col items-center justify-center space-y-2 p-4"
       >
@@ -71,8 +91,15 @@ export const SigninForm = () => {
             </FormItem>
           )}
         />
-        <Button className="w-full" type="submit">
-          Login
+        <Button disabled={isLoading} className="w-full" type="submit">
+          {isLoading ? (
+            <span className="flex items-center gap-2">
+              <LoaderCircle className="animate-spin" />
+              Verificando...
+            </span>
+          ) : (
+            'Login'
+          )}
         </Button>
       </form>
     </Form>

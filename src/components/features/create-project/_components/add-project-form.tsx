@@ -196,7 +196,7 @@ export const AddProjectForm = () => {
             />
           </section>
 
-          {stacksList?.length && (
+          {stacksList?.length > 0 && (
             <section className="mb-4 flex w-full flex-col gap-2">
               <div className="flex flex-wrap items-center justify-start gap-1">
                 {stacksList.map(({ iconUrl }) => (

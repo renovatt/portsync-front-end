@@ -58,7 +58,7 @@ export function StackModal() {
                         return (
                           <FormItem
                             key={item.id}
-                            className="flex flex-row items-center justify-start space-x-2 space-y-0 rounded-xl bg-secondary p-2"
+                            className="flex flex-row items-center justify-start space-x-2 space-y-0 rounded-xl bg-accent p-2"
                           >
                             <img
                               src={`https://skillicons.dev/icons?i=${item.id}`}

@@ -1,4 +1,4 @@
-import { ProjectResponseDto } from '@/entities/project.dto'
+import { ProjectResponseDto } from '@/entities/project-response.dto'
 import { BASE_URL, API_KEY } from '@/static/env'
 import { CustomError } from '@/utils/custom-error'
 import { isErrorMessageDto } from '@/utils/type-guard-error'
@@ -11,7 +11,7 @@ export const getProjects = async (): Promise<ProjectResponseDto> => {
         'x-api-key': API_KEY,
       },
       next: {
-        revalidate: 5,
+        revalidate: 0,
         tags: ['projects-public'],
       },
     })

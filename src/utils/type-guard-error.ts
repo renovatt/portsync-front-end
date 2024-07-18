@@ -1,5 +1,5 @@
 import { ErrorMessageDto } from '@/entities/error.dto'
-import { ProjectResponseDto } from '@/entities/project.dto'
+import { ProjectResponseDto } from '@/entities/project-response.dto'
 import { SigninResponseDto } from '@/entities/signin-response.dto'
 import { StacksResponseDto } from '@/entities/stack.dto'
 import { ProjectDto } from '@/schemas/project-schema'

@@ -3,6 +3,7 @@ import Loader from '@/components/@globals/_components/loader'
 import { getProjects } from '@/services/get-project.service'
 import { getProjectsById } from '@/services/get-project-by-id.service'
 import { CreateAndEditProjectForm } from '@/components/features/create-and-edit-project/_components/create-and-edit-project-form'
+import { ProjectDto } from '@/schemas/project-schema'
 
 type Props = {
   params: {
@@ -13,7 +14,7 @@ type Props = {
 export async function generateStaticParams() {
   const projects = await getProjects()
 
-  return projects.map((project) => ({
+  return projects.map((project: ProjectDto) => ({
     id: project.id?.toString(),
   }))
 }

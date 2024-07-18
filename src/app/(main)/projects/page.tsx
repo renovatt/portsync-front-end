@@ -1,11 +1,11 @@
 import { Suspense } from 'react'
 import { ShieldX } from 'lucide-react'
 import { CustomError } from '@/utils/custom-error'
-import { ProjectResponseDto } from '@/entities/project.dto'
 import { getProjects } from '@/services/get-project.service'
 import Loader from '@/components/@globals/_components/loader'
 import ErrorMessage from '@/components/@globals/_components/error-message'
 import CardProject from '@/components/features/list-project/_components/card-project'
+import { ProjectResponseDto } from '@/entities/project-response.dto'
 
 export default async function page() {
   let projects: ProjectResponseDto = []

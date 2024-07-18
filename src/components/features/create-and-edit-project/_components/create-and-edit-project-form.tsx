@@ -19,6 +19,12 @@ import { ProjectDto, projectSchema } from '@/schemas/project-schema'
 import { Textarea } from '@/components/ui/textarea'
 import { stacks } from '@/static/stacks'
 import { StackModal } from './stack-modal'
+import { create } from '../actions/create-action.service'
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { LoaderCircle } from 'lucide-react'
+import { getCookie } from 'cookies-next'
+import { update } from '../actions/update-action.service'
 
 type CreateAndEditProjectProps = {
   projectId?: string
@@ -29,11 +35,17 @@ export const CreateAndEditProjectForm = ({
   projectId,
   project,
 }: CreateAndEditProjectProps) => {
+  const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
+
+  const userId = getCookie('@user')
+
   const form = useForm<ProjectDto>({
     resolver: zodResolver(projectSchema),
     defaultValues: projectId
       ? project
       : {
+          userId,
           githubUrl: 'https://github.com/renovatt',
           stacks: [
             {
@@ -45,27 +57,50 @@ export const CreateAndEditProjectForm = ({
 
   const stacksList = form.watch('stacks')
 
-  const onSubmit = form.handleSubmit((values) => {
-    toast({
-      title: 'Success',
-      description: (
-        <pre className="mt-2 rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
-        </pre>
-      ),
-    })
-  })
+  const onSubmit = form.handleSubmit(async (values) => {
+    setIsLoading(true)
 
-  const handleDeleteProject = (id: string) => {
+    if (projectId) {
+      const updated = await update(projectId as string, values)
+
+      if (!updated.ok) {
+        toast({
+          title: 'Ops!',
+          description: updated.message,
+        })
+        setIsLoading(false)
+        return
+      }
+
+      toast({
+        title: 'Yeah!',
+        description: 'Projeto atualizado com sucesso!',
+      })
+
+      setIsLoading(false)
+      router.push('/projects')
+      return
+    }
+
+    const created = await create(values)
+
+    if (!created.ok) {
+      toast({
+        title: 'Ops!',
+        description: created.message,
+      })
+      setIsLoading(false)
+      return
+    }
+
     toast({
-      title: 'Success',
-      description: (
-        <pre className="mt-2 rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(id, null, 2)}</code>
-        </pre>
-      ),
+      title: 'Yeah!',
+      description: 'Projeto criado com sucesso!',
     })
-  }
+
+    setIsLoading(false)
+    router.push('/projects')
+  })
 
   return (
     <Form {...form}>
@@ -216,7 +251,7 @@ export const CreateAndEditProjectForm = ({
           </section>
 
           {stacksList?.length > 0 && (
-            <section className="mb-4 flex w-full flex-col gap-2">
+            <section className="my-4 flex w-full flex-col gap-2">
               <div className="flex flex-wrap items-center justify-start gap-1">
                 {stacksList.map(({ iconUrl }) => (
                   <img
@@ -237,19 +272,15 @@ export const CreateAndEditProjectForm = ({
         </section>
 
         <div className="mt-10 flex w-full gap-2 self-center md:mt-0 md:w-auto md:self-end">
-          {projectId && (
-            <Button
-              variant="outline"
-              onClick={() => handleDeleteProject(projectId)}
-              className="w-full md:w-60"
-              type="button"
-            >
-              Apagar
-            </Button>
-          )}
-
           <Button className="w-full md:w-60" type="submit">
-            Salvar
+            {isLoading ? (
+              <span className="flex items-center gap-2">
+                <LoaderCircle className="animate-spin" />
+                {projectId ? 'Atualizando...' : 'Salvando...'}
+              </span>
+            ) : (
+              <span>{projectId ? 'Atualizar' : 'Salvar'}</span>
+            )}
           </Button>
         </div>
       </form>

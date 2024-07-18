@@ -13,14 +13,13 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { LogOut } from 'lucide-react'
-import { useRouter } from 'next/navigation'
+import { logout } from '../actions/logout-action.service'
 
 export default function UserNav() {
-  const router = useRouter()
-
-  const handleLogout = () => {
-    router.push('/signin')
+  const handleLogout = async () => {
+    await logout()
   }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -46,7 +45,7 @@ export default function UserNav() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem onClick={handleLogout}>
+          <DropdownMenuItem className="cursor-pointer" onClick={handleLogout}>
             Sair
             <DropdownMenuShortcut>
               <LogOut className="size-4" />

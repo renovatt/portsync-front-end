@@ -1,5 +1,5 @@
-import { SignupForm } from '@/app/_components/signup-form'
-import { AuthFormSeparator } from '@/app/_components/auth-form-separator'
+import { SignupForm } from '@/components/features/auth/_components/signup-form'
+import { AuthFormSeparator } from '@/components/features/auth/_components/auth-form-separator'
 
 export default function Signin() {
   return (

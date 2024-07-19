@@ -25,7 +25,7 @@ export default function CardIconDropdown({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Settings className="cursor-pointer text-muted-foreground transition-all hover:rotate-45" />
+        <Settings className="size-5 cursor-pointer text-muted-foreground transition-all hover:rotate-45" />
       </DropdownMenuTrigger>
 
       <DropdownMenuContent className="" align="end">

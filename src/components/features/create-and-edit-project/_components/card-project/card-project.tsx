@@ -19,8 +19,8 @@ export default function CardProject({
         <CardDeleteModal closeModal={closeModal} projectId={id as string} />
       )}
 
-      <div className="relative flex h-40 w-36 animate-fade-right flex-col items-start justify-center gap-4 overflow-hidden rounded-xl bg-accent p-2 shadow-xl md:w-60">
-        <div className="absolute right-2 top-2 flex flex-col items-center justify-center space-y-4">
+      <div className="relative flex h-48 w-32 animate-fade-right flex-col items-start justify-center space-y-5 overflow-hidden rounded-xl bg-accent px-4 shadow-xl md:w-56">
+        <div className="absolute right-4 top-4 flex flex-col items-center justify-center space-y-4">
           <CardIconDropdown openModal={openModal} id={id as string} />
         </div>
         <figure>
@@ -32,11 +32,11 @@ export default function CardProject({
             className="size-10 rounded-xl object-cover shadow-md md:size-16"
           />
         </figure>
-        <div className="flex flex-col items-start justify-center">
+        <div className="flex flex-col items-start justify-center space-y-2">
           <h2 className="text-sm font-bold text-primary md:text-base">
             {name}
           </h2>
-          <p className="w-32 truncate text-xs text-muted-foreground md:w-52">
+          <p className="w-28 truncate text-xs text-muted-foreground md:w-52">
             {description}
           </p>
         </div>

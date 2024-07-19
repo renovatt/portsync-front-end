@@ -15,9 +15,9 @@ export default function SheetMenu() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" className="flex items-center gap-2">
+        <Button variant="ghost" className="flex items-center gap-2">
           <Bolt />
-          Sincronizar
+          <span className="hidden md:block">Sincronizar</span>
         </Button>
       </SheetTrigger>
       <SheetContent>

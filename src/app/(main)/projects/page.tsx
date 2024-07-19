@@ -25,7 +25,7 @@ export default async function page() {
           <ErrorMessage error={error} />
         </div>
       ) : (
-        <article className="container flex size-full flex-wrap items-center justify-center gap-5 md:justify-start">
+        <article className="container flex size-full flex-wrap items-center justify-center gap-10 md:justify-start">
           <Suspense fallback={<Loader />}>
             {Array.isArray(projects) &&
               projects

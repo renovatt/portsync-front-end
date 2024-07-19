@@ -7,7 +7,7 @@ type Props = {
 
 export const AuthFormSeparator = ({ type }: Props) => {
   return (
-    <section className="flex flex-col items-center justify-center gap-2">
+    <section className="flex w-full max-w-96 flex-col items-center justify-center gap-2">
       {type === 'signin' ? (
         <p className="text-xs text-muted-foreground">
           Ainda não tem uma conta?

@@ -34,7 +34,7 @@ export const SigninForm = () => {
 
     if (!data.ok) {
       toast({
-        title: 'Erro',
+        title: 'Ops!',
         description: data.message,
       })
       setIsLoading(false)
@@ -42,7 +42,7 @@ export const SigninForm = () => {
     }
 
     toast({
-      title: 'Successo',
+      title: 'Yeah!',
       description: 'Bem vindo!',
     })
 
@@ -54,7 +54,7 @@ export const SigninForm = () => {
     <Form {...form}>
       <form
         onSubmit={onSubmit}
-        className="flex w-full max-w-96 flex-col items-center justify-center space-y-2 p-4"
+        className="animate-fade-left flex w-full max-w-96 flex-col items-center justify-center space-y-2 p-4"
       >
         <FormField
           control={form.control}

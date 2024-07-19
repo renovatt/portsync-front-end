@@ -4,8 +4,8 @@ import { CustomError } from '@/utils/custom-error'
 import { getProjects } from '@/services/get-project.service'
 import Loader from '@/components/@globals/_components/loader'
 import ErrorMessage from '@/components/@globals/_components/error-message'
-import CardProject from '@/components/features/list-project/_components/card-project'
 import { ProjectResponseDto } from '@/entities/project-response.dto'
+import CardProject from '@/components/features/create-and-edit-project/_components/card-project/card-project'
 
 export default async function page() {
   let projects: ProjectResponseDto = []
@@ -18,7 +18,7 @@ export default async function page() {
   }
 
   return (
-    <section className="animate-fade-left my-10 flex flex-col items-center justify-center">
+    <section className="my-10 flex flex-col items-center justify-center">
       {error ? (
         <div className="mt-40 flex flex-col items-center justify-center gap-5 rounded-lg bg-accent p-4 shadow-lg">
           <ShieldX />

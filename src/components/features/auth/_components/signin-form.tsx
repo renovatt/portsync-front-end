@@ -54,7 +54,7 @@ export const SigninForm = () => {
     <Form {...form}>
       <form
         onSubmit={onSubmit}
-        className="animate-fade-left flex w-full max-w-96 flex-col items-center justify-center space-y-2 p-4"
+        className="flex w-full max-w-96 animate-fade-left flex-col items-center justify-center space-y-2 p-4"
       >
         <FormField
           control={form.control}

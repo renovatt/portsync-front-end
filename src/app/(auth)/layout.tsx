@@ -18,7 +18,7 @@ export default function AuthLayout({
       </article>
 
       <article className="hidden h-screen w-1/2 items-center justify-center bg-primary md:flex">
-        <section className="animate-fade-right flex flex-col items-center justify-center gap-4">
+        <section className="flex animate-fade-right flex-col items-center justify-center gap-4">
           <h1 className="text-5xl font-bold text-white">
             Port<span className="text-destructive">Sync</span>
           </h1>

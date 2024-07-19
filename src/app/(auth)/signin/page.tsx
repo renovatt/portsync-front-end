@@ -8,7 +8,7 @@ import Link from 'next/link'
 export default function Signin() {
   return (
     <section className="flex size-full flex-col items-center justify-center space-y-4 bg-primary-foreground">
-      <div className="animate-fade-left flex w-full max-w-96 flex-col items-start justify-center px-4">
+      <div className="flex w-full max-w-96 animate-fade-left flex-col items-start justify-center px-4">
         <Bolt className="size-5 text-primary" />
         <h1 className="text-xl font-semibold">Sincronize com seu portfolio</h1>
         <p className="text-xs text-muted-foreground">

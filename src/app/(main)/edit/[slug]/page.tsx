@@ -23,7 +23,7 @@ export default async function page({ params: { slug } }: Props) {
   const project = await getProjectsById(slug)
   return (
     <Suspense fallback={<Loader />}>
-      <section className="my-10 flex flex-col items-center justify-center">
+      <section className="my-10 flex animate-fade-left flex-col items-center justify-center">
         <article className="container size-full">
           <CreateAndEditProjectForm projectId={slug} project={project} />
         </article>

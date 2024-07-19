@@ -15,16 +15,16 @@ export default function SheetMenu() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" className="flex items-center gap-2">
+        <Button variant="ghost" className="flex items-center gap-2">
           <Bolt />
-          Gerenciar
+          <span className="hidden md:block">Sincronizar</span>
         </Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
           <SheetTitle className="flex items-center gap-2">
             <Bolt />
-            Gerenciar
+            Sincronizar
           </SheetTitle>
         </SheetHeader>
         <div className="grid gap-4 py-4">

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Bolt } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +18,15 @@ export default function AuthLayout({
       </article>
 
       <article className="hidden h-screen w-1/2 items-center justify-center bg-primary md:flex">
-        <h1 className="text-5xl font-bold text-white">LOGO</h1>
+        <section className="flex animate-fade-right flex-col items-center justify-center gap-4">
+          <h1 className="text-5xl font-bold text-white">
+            Port<span className="text-destructive">Sync</span>
+          </h1>
+          <p className="text-white">
+            O seu sistema de gerenciamento para portfolio.
+          </p>
+          <Bolt className="size-10 text-white" />
+        </section>
       </article>
     </section>
   )

@@ -19,13 +19,13 @@ export default function AuthLayout({
 
       <article className="hidden h-screen w-1/2 items-center justify-center bg-primary md:flex">
         <section className="flex animate-fade-right flex-col items-center justify-center gap-4">
-          <h1 className="text-5xl font-bold text-white">
+          <h1 className="text-5xl font-bold text-secondary">
             Port<span className="text-destructive">Sync</span>
           </h1>
-          <p className="text-white">
+          <p className="text-secondary">
             O seu sistema de gerenciamento para portfolio.
           </p>
-          <Bolt className="size-10 text-white" />
+          <Bolt className="size-10 text-secondary" />
         </section>
       </article>
     </section>

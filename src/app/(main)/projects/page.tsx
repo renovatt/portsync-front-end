@@ -6,6 +6,12 @@ import Loader from '@/components/@globals/_components/loader'
 import ErrorMessage from '@/components/@globals/_components/error-message'
 import { ProjectResponseDto } from '@/entities/project-response.dto'
 import CardProject from '@/components/features/create-and-edit-project/_components/card-project/card-project'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Projetos',
+  description: 'Listagem de projetos',
+}
 
 export default async function page() {
   let projects: ProjectResponseDto = []
@@ -25,7 +31,7 @@ export default async function page() {
           <ErrorMessage error={error} />
         </div>
       ) : (
-        <article className="container flex size-full flex-wrap items-center justify-center gap-10 md:justify-start">
+        <article className="container flex size-full flex-wrap items-center justify-center gap-5 md:justify-start">
           <Suspense fallback={<Loader />}>
             {Array.isArray(projects) &&
               projects

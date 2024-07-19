@@ -63,7 +63,7 @@ export function StackModal() {
                             <img
                               src={`https://skillicons.dev/icons?i=${item.id}`}
                               alt={item.label}
-                              className="size-14 rounded-xl bg-slate-200"
+                              className="size-14 rounded-xl"
                             />
                             <FormControl>
                               <Checkbox

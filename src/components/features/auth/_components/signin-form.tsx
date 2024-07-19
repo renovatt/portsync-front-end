@@ -95,7 +95,7 @@ export const SigninForm = () => {
           {isLoading ? (
             <span className="flex items-center gap-2">
               <LoaderCircle className="animate-spin" />
-              Verificando...
+              Sincronizando...
             </span>
           ) : (
             'Login'

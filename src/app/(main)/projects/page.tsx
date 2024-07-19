@@ -6,6 +6,12 @@ import Loader from '@/components/@globals/_components/loader'
 import ErrorMessage from '@/components/@globals/_components/error-message'
 import { ProjectResponseDto } from '@/entities/project-response.dto'
 import CardProject from '@/components/features/create-and-edit-project/_components/card-project/card-project'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Projetos',
+  description: 'Listagem de projetos',
+}
 
 export default async function page() {
   let projects: ProjectResponseDto = []

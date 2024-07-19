@@ -19,6 +19,28 @@ export async function generateStaticParams() {
   }))
 }
 
+export async function generateMetadata({ params: { slug } }: Props) {
+  const projects = await getProjectsById(slug)
+
+  const APP_NAME = `${projects.name}`
+  const APP_DESCRIPTION = projects.description
+  const BANNER_IMAGE = projects.bannerUrl
+
+  return {
+    title: APP_NAME,
+    description: APP_DESCRIPTION,
+    openGraph: {
+      title: APP_NAME,
+      description: APP_DESCRIPTION,
+      images: [
+        {
+          url: BANNER_IMAGE,
+        },
+      ],
+    },
+  }
+}
+
 export default async function page({ params: { slug } }: Props) {
   const project = await getProjectsById(slug)
   return (

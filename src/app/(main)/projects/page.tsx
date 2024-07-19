@@ -18,7 +18,7 @@ export default async function page() {
   }
 
   return (
-    <section className="my-10 flex flex-col items-center justify-center">
+    <section className="animate-fade-left my-10 flex flex-col items-center justify-center">
       {error ? (
         <div className="mt-40 flex flex-col items-center justify-center gap-5 rounded-lg bg-accent p-4 shadow-lg">
           <ShieldX />

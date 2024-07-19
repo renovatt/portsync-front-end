@@ -250,6 +250,8 @@ export const CreateAndEditProjectForm = ({
             />
           </section>
 
+          <StackModal />
+
           {stacksList?.length > 0 && (
             <section className="my-4 flex w-full flex-col gap-2">
               <div className="flex flex-wrap items-center justify-start gap-1">
@@ -267,8 +269,6 @@ export const CreateAndEditProjectForm = ({
               </span>
             </section>
           )}
-
-          <StackModal />
         </section>
 
         <div className="mt-10 flex w-full gap-2 self-center md:mt-0 md:w-auto md:self-end">

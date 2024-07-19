@@ -6,10 +6,7 @@ export default function Header() {
   return (
     <header className="flex h-20 w-full items-center justify-between px-10 py-2">
       <Avatar>
-        <AvatarImage
-          src="https://raw.githubusercontent.com/renovatt/portsync/main/public/icon-512x512.png"
-          alt="@shadcn"
-        />
+        <AvatarImage src="/icon-192x192.png" alt="@portsync" />
         <AvatarFallback>PS</AvatarFallback>
       </Avatar>
       <section className="relative flex items-center gap-4">

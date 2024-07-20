@@ -12,6 +12,11 @@ export const getProjectsById = async (
       headers: {
         'x-api-key': API_KEY,
       },
+      cache: 'no-cache',
+      next: {
+        revalidate: 0,
+        tags: ['project-by-id'],
+      },
     })
 
     const data: ProjectDto = await response.json()

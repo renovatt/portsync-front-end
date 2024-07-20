@@ -40,8 +40,6 @@ export const CreateAndEditProjectForm = ({
 
   const userId = getCookie('@user')
 
-  console.log(project)
-
   const form = useForm<ProjectDto>({
     resolver: zodResolver(projectSchema),
     defaultValues: projectId

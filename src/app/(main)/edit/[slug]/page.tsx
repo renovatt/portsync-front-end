@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import Loader from '@/components/@globals/_components/loader'
-import { getProjectsById } from '@/services/get-project-by-id.service'
 import { CreateAndEditProjectForm } from '@/components/features/create-and-edit-project/_components/create-and-edit-project-form'
+import { getProjectsById } from '@/components/features/create-and-edit-project/actions/get-project-by-id-action.service'
 
 type Props = {
   params: {

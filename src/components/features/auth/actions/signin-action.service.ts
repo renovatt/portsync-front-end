@@ -1,6 +1,6 @@
 'use server'
 import { cookies } from 'next/headers'
-import { BASE_URL, API_KEY } from '@/static/env'
+import { BASE_URL } from '@/static/env'
 import { CustomError } from '@/utils/custom-error'
 import { SigninDto } from '@/schemas/signin-schema'
 import { isErrorMessageDto } from '@/utils/type-guard-error'
@@ -14,7 +14,6 @@ export const signin = async (
     const response = await fetch(`${BASE_URL}/auth/signin`, {
       method: 'POST',
       headers: {
-        'x-api-key': API_KEY,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(signinData),
@@ -36,6 +35,12 @@ export const signin = async (
     })
 
     cookies().set('@user', userId, {
+      secure: true,
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 8,
+    })
+
+    cookies().set('@api-key', data.apiKey, {
       secure: true,
       sameSite: 'lax',
       maxAge: 60 * 60 * 8,

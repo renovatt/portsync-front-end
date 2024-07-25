@@ -1,18 +1,24 @@
+'use server'
 import { ProjectResponseDto } from '@/entities/project-response.dto'
-import { BASE_URL, API_KEY } from '@/static/env'
+import { BASE_URL } from '@/static/env'
 import { CustomError } from '@/utils/custom-error'
 import { isErrorMessageDto } from '@/utils/type-guard-error'
+import { cookies } from 'next/headers'
 
 export const getProjects = async (): Promise<ProjectResponseDto> => {
   try {
-    const response = await fetch(`${BASE_URL}/projects-public`, {
+    const apiKey = cookies().get('@api-key')?.value as string
+    const accessToken = cookies().get('@access-token')?.value as string
+
+    const response = await fetch(`${BASE_URL}/projects`, {
       method: 'GET',
       headers: {
-        'x-api-key': API_KEY,
+        'x-api-key': apiKey,
+        Authorization: `Bearer ${accessToken}`,
       },
       next: {
         revalidate: 0,
-        tags: ['projects-public'],
+        tags: ['projects'],
       },
     })
 

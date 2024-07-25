@@ -1,20 +1,25 @@
+'use server'
 import { ProjectDto } from '@/schemas/project-schema'
-import { BASE_URL, API_KEY } from '@/static/env'
+import { BASE_URL } from '@/static/env'
 import { CustomError } from '@/utils/custom-error'
 import { isErrorMessageDto } from '@/utils/type-guard-error'
+import { cookies } from 'next/headers'
 
 export const getProjectsById = async (
   projectId: string,
 ): Promise<ProjectDto> => {
   try {
-    const response = await fetch(`${BASE_URL}/projects-public/${projectId}`, {
+    const apiKey = cookies().get('@api-key')?.value as string
+    const accessToken = cookies().get('@access-token')?.value as string
+
+    const response = await fetch(`${BASE_URL}/projects/${projectId}`, {
       method: 'GET',
       headers: {
-        'x-api-key': API_KEY,
+        'x-api-key': apiKey,
+        Authorization: `Bearer ${accessToken}`,
       },
       cache: 'no-cache',
       next: {
-        revalidate: 0,
         tags: ['project-by-id'],
       },
     })

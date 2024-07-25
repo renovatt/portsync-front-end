@@ -24,7 +24,7 @@ export const create = async (
     })
 
     const data: ProjectResponseDto = await response.json()
-    revalidateTag('projects-public')
+    revalidateTag('projects')
 
     return { ...data, ok: response.ok }
   } catch (error) {

@@ -5,7 +5,6 @@ import { CustomError } from '@/utils/custom-error'
 import { SigninDto } from '@/schemas/signin-schema'
 import { isErrorMessageDto } from '@/utils/type-guard-error'
 import { SigninResponseDto } from '@/entities/signin-response.dto'
-import { decode } from 'jsonwebtoken'
 
 export const signin = async (
   signinData: SigninDto,
@@ -25,16 +24,8 @@ export const signin = async (
       throw new CustomError(data.message, data.error, response.status)
     }
 
-    const userId = decode(data.accessToken ?? '')?.sub as string
-
     cookies().set('@access-token', data.accessToken, {
       httpOnly: true,
-      secure: true,
-      sameSite: 'lax',
-      maxAge: 60 * 60 * 8,
-    })
-
-    cookies().set('@user', userId, {
       secure: true,
       sameSite: 'lax',
       maxAge: 60 * 60 * 8,

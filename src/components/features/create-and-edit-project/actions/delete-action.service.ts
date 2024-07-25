@@ -17,7 +17,7 @@ export const deleteProject = async (id: string) => {
       },
     })
 
-    revalidateTag('projects-public')
+    revalidateTag('projects')
 
     return { ok: response.ok }
   } catch (error) {

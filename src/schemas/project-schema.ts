@@ -2,7 +2,6 @@ import { z } from 'zod'
 
 export const projectSchema = z.object({
   id: z.string().optional(),
-  userId: z.string(),
   name: z
     .string({
       required_error: 'Campo obrigatório',

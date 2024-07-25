@@ -26,7 +26,7 @@ export const update = async (
     })
 
     const data: ProjectResponseDto = await response.json()
-    revalidateTag('projects-public')
+    revalidateTag('projects')
 
     if (isErrorMessageDto(data)) {
       throw new CustomError(data.message, data.error, response.status)

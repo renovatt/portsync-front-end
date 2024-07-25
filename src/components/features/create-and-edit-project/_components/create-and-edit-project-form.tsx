@@ -23,7 +23,6 @@ import { create } from '../actions/create-action.service'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { LoaderCircle } from 'lucide-react'
-import { getCookie } from 'cookies-next'
 import { update } from '../actions/update-action.service'
 
 type CreateAndEditProjectProps = {
@@ -38,14 +37,11 @@ export const CreateAndEditProjectForm = ({
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
 
-  const userId = getCookie('@user')
-
   const form = useForm<ProjectDto>({
     resolver: zodResolver(projectSchema),
     defaultValues: projectId
       ? project
       : {
-          userId,
           githubUrl: 'https://github.com/renovatt',
           stacks: [
             {

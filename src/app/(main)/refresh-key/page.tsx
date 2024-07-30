@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import ViewAndGenerateApiKey from '@/components/features/key/_components/view-and-genate-api-key'
+import ViewAndGenerateApiKey from '@features/key/_components/view-and-genate-api-key'
 
 export const metadata: Metadata = {
   title: 'Genenciar',

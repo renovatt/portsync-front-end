@@ -1,10 +1,10 @@
 'use server'
 import { cookies } from 'next/headers'
-import { BASE_URL } from '@/static/env'
-import { CustomError } from '@/utils/custom-error'
-import { SigninDto } from '@/schemas/signin-schema'
-import { isErrorMessageDto } from '@/utils/type-guard-error'
-import { SigninResponseDto } from '@/entities/signin-response.dto'
+import { BASE_URL } from '~static/env'
+import { CustomError } from '@utils/custom-error'
+import { SigninDto } from '@schemas/signin-schema'
+import { isErrorMessageDto } from '@utils/type-guard-error'
+import { SigninResponseDto } from '@entities/signin-response.dto'
 
 export const signin = async (
   signinData: SigninDto,

@@ -1,12 +1,12 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '@ui/button'
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from '@/components/ui/sheet'
-import { routes } from '@/static/routes'
+} from '@ui/sheet'
+import { routes } from '~static/routes'
 import { Bolt } from 'lucide-react'
 
 import Link from 'next/link'

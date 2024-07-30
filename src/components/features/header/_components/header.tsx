@@ -1,10 +1,10 @@
 'use client'
 import UserNav from './user-nav'
 import SheetMenu from './sheet-menu'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '@ui/avatar'
 import { usePathname } from 'next/navigation'
-import { routes } from '@/static/routes'
-import { useAuth } from '@/hooks/use-auth'
+import { routes } from '~static/routes'
+import { useAuth } from '@hooks/use-auth'
 
 export default function Header() {
   const pathname = usePathname()

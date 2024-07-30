@@ -1,4 +1,4 @@
-import { ErrorMessageDto } from '@/entities/error.dto'
+import { ErrorMessageDto } from '@entities/error.dto'
 
 export class CustomError extends Error implements ErrorMessageDto {
   error: string

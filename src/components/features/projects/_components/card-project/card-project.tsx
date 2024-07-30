@@ -1,9 +1,9 @@
 'use client'
 import Image from 'next/image'
-import { ProjectDto } from '@/schemas/project-schema'
+import { ProjectDto } from '@schemas/project-schema'
 import CardIconDropdown from './card-icon-dropdown'
-import { useToggle } from '@/hooks/use-toggle'
-import DeleteModal from '@/components/@globals/_components/delete-modal'
+import { useToggle } from '@hooks/use-toggle'
+import DeleteModal from '@globals/_components/delete-modal'
 import { deleteProject } from '../../actions/delete-action.service'
 
 export default function CardProject({

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Header from '@/components/features/header/_components/header'
+import Header from '@features/header/_components/header'
 
 const APP_NAME = 'PortSync'
 const APP_DESCRIPTION = 'PortSync - Sistema de Gerenciamento para portfolio.'

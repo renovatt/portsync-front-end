@@ -1,9 +1,9 @@
 import { Suspense } from 'react'
-import Loader from '@/components/@globals/_components/loader'
-import { getProjectsById } from '@/components/features/projects/actions/get-project-by-id-action.service'
-import { CreateAndEditProjectForm } from '@/components/features/projects/_components/create-and-edit-project-form'
-import { CustomError } from '@/utils/custom-error'
-import ErrorMessage from '@/components/@globals/_components/error-message'
+import Loader from '@globals/_components/loader'
+import { getProjectsById } from '@features/projects/actions/get-project-by-id-action.service'
+import { CreateAndEditProjectForm } from '@features/projects/_components/create-and-edit-project-form'
+import { CustomError } from '@utils/custom-error'
+import ErrorMessage from '@globals/_components/error-message'
 import { ShieldX } from 'lucide-react'
 
 type Props = {

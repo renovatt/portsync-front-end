@@ -1,5 +1,5 @@
 'use client'
-import { Button } from '@/components/ui/button'
+import { Button } from '@ui/button'
 import {
   Form,
   FormControl,
@@ -7,19 +7,19 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@ui/form'
+import { Input } from '@ui/input'
 import { useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { toast } from '@/components/ui/use-toast'
-import { SigninDto, signinSchema } from '@/schemas/signin-schema'
+import { toast } from '@ui/use-toast'
+import { SigninDto, signinSchema } from '@schemas/signin-schema'
 import { signin } from '../actions/signin-action.service'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { Eye, EyeOff, LoaderCircle } from 'lucide-react'
-import { useToggle } from '@/hooks/use-toggle'
+import { useToggle } from '@hooks/use-toggle'
 
 export const SigninForm = () => {
   const [isLoading, setIsLoading] = useState(false)

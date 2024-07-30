@@ -1,12 +1,12 @@
 import { Suspense } from 'react'
 import { ShieldX } from 'lucide-react'
-import { CustomError } from '@/utils/custom-error'
-import Loader from '@/components/@globals/_components/loader'
-import ErrorMessage from '@/components/@globals/_components/error-message'
+import { CustomError } from '@utils/custom-error'
+import Loader from '@globals/_components/loader'
+import ErrorMessage from '@globals/_components/error-message'
 import { Metadata } from 'next'
-import StackImageCard from '@/components/features/stacks/_components/stack-image-card'
-import { getStacks } from '@/components/features/stacks/actions/get-stacks-action.service'
-import { StackDto, StacksResponseDto } from '@/entities/stack.dto'
+import StackImageCard from '@features/stacks/_components/stack-image-card'
+import { getStacks } from '@features/stacks/actions/get-stacks-action.service'
+import { StackDto, StacksResponseDto } from '@entities/stack.dto'
 
 export const metadata: Metadata = {
   title: 'Habilidades',

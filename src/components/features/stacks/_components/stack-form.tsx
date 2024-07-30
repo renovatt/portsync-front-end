@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
+import { Button } from '@ui/button'
+import { Checkbox } from '@ui/checkbox'
 import {
   Form,
   FormField,
@@ -9,16 +9,16 @@ import {
   FormControl,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { StackSchema, stackSchema } from '@/schemas/stack-schema'
-import { stacks } from '@/static/stacks'
+} from '@ui/form'
+import { StackSchema, stackSchema } from '@schemas/stack-schema'
+import { stacks } from '~static/stacks'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { LoaderCircle } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { createMany } from '../actions/create-many-stack-action.service'
-import { toast } from '@/components/ui/use-toast'
+import { toast } from '@ui/use-toast'
 
 export default function StackForm() {
   const [isLoading, setIsLoading] = useState(false)

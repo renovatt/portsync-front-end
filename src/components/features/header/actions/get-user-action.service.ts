@@ -1,6 +1,6 @@
 'use server'
-import { User } from '@/entities/user-response.dto'
-import { BASE_URL } from '@/static/env'
+import { User } from '@entities/user-response.dto'
+import { BASE_URL } from '~static/env'
 import { cookies } from 'next/headers'
 
 export const getUser = async (): Promise<User> => {

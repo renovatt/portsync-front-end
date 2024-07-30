@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use lcient'
-import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
+import { Button } from '@ui/button'
+import { Checkbox } from '@ui/checkbox'
 
 import {
   Dialog,
@@ -12,7 +12,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog'
+} from '@ui/dialog'
 
 import {
   FormField,
@@ -20,9 +20,9 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
-} from '@/components/ui/form'
-import { ProjectDto } from '@/schemas/project-schema'
-import { stacks } from '@/static/stacks'
+} from '@ui/form'
+import { ProjectDto } from '@schemas/project-schema'
+import { stacks } from '~static/stacks'
 import { useFormContext } from 'react-hook-form'
 
 export function StackModal() {

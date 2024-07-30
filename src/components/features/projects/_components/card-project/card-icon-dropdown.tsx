@@ -8,7 +8,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@ui/dropdown-menu'
 
 import Link from 'next/link'
 import { FilePenLine, Settings, Trash2 } from 'lucide-react'

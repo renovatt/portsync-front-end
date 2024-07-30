@@ -1,7 +1,7 @@
 'use server'
 import { cookies } from 'next/headers'
-import { BASE_URL } from '@/static/env'
-import { CustomError } from '@/utils/custom-error'
+import { BASE_URL } from '~static/env'
+import { CustomError } from '@utils/custom-error'
 import { revalidateTag } from 'next/cache'
 
 export const deleteStack = async (id: string) => {

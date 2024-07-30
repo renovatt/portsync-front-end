@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { User } from '@/entities/user-response.dto'
-import { getUser } from '@/components/features/header/actions/get-user-action.service'
+import { User } from '@entities/user-response.dto'
+import { getUser } from '@features/header/actions/get-user-action.service'
 
 export const useAuth = () => {
   const [user, setUser] = useState<User | null>(null)

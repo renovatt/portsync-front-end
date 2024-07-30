@@ -1,8 +1,8 @@
 'use server'
-import { StacksResponseDto } from '@/entities/stack.dto'
-import { BASE_URL } from '@/static/env'
-import { CustomError } from '@/utils/custom-error'
-import { isErrorMessageDto } from '@/utils/type-guard-error'
+import { StacksResponseDto } from '@entities/stack.dto'
+import { BASE_URL } from '~static/env'
+import { CustomError } from '@utils/custom-error'
+import { isErrorMessageDto } from '@utils/type-guard-error'
 import { cookies } from 'next/headers'
 
 export const getStacks = async (): Promise<StacksResponseDto> => {

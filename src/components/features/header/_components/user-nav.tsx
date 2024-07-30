@@ -1,5 +1,5 @@
 'use client'
-import { Button } from '@/components/ui/button'
+import { Button } from '@ui/button'
 
 import {
   DropdownMenuShortcut,
@@ -10,12 +10,12 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+} from '@ui/dropdown-menu'
+import { Avatar, AvatarFallback, AvatarImage } from '@ui/avatar'
 import { LogOut } from 'lucide-react'
 import { signout } from '../actions/signout-action.service'
 import { useTheme } from 'next-themes'
-import { useAuth } from '@/hooks/use-auth'
+import { useAuth } from '@hooks/use-auth'
 
 export default function UserNav() {
   const { user } = useAuth()

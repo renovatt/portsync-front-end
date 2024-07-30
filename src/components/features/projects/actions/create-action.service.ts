@@ -1,10 +1,10 @@
 'use server'
 import { cookies } from 'next/headers'
 import { revalidateTag } from 'next/cache'
-import { BASE_URL } from '@/static/env'
-import { CustomError } from '@/utils/custom-error'
-import { ProjectDto } from '@/schemas/project-schema'
-import { ProjectResponseDto } from '@/entities/project-response.dto'
+import { BASE_URL } from '~static/env'
+import { CustomError } from '@utils/custom-error'
+import { ProjectDto } from '@schemas/project-schema'
+import { ProjectResponseDto } from '@entities/project-response.dto'
 
 export const create = async (
   project: ProjectDto,

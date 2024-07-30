@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import { Button } from '@/components/ui/button'
+import { Button } from '@ui/button'
 import {
   Form,
   FormControl,
@@ -8,16 +8,16 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@ui/form'
+import { Input } from '@ui/input'
 import { useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { toast } from '@/components/ui/use-toast'
-import { ProjectDto, projectSchema } from '@/schemas/project-schema'
-import { Textarea } from '@/components/ui/textarea'
-import { stacks } from '@/static/stacks'
+import { toast } from '@ui/use-toast'
+import { ProjectDto, projectSchema } from '@schemas/project-schema'
+import { Textarea } from '@ui/textarea'
+import { stacks } from '~static/stacks'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { LoaderCircle } from 'lucide-react'

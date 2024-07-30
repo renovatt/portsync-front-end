@@ -1,4 +1,4 @@
-import { USER_TESTER } from '@/static/env'
+import { USER_TESTER } from '~static/env'
 import { useAuth } from './use-auth'
 import { useState, useEffect } from 'react'
 

@@ -1,9 +1,9 @@
 'use server'
 import { cookies } from 'next/headers'
 import { revalidateTag } from 'next/cache'
-import { BASE_URL } from '@/static/env'
-import { CustomError } from '@/utils/custom-error'
-import { StackDto } from '@/entities/stack.dto'
+import { BASE_URL } from '~static/env'
+import { CustomError } from '@utils/custom-error'
+import { StackDto } from '@entities/stack.dto'
 
 type StackResponseDto = Pick<StackDto, 'iconUrl'>[]
 

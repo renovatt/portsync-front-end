@@ -1,7 +1,7 @@
 'use server'
-import { ProjectDto } from '@/schemas/project-schema'
-import { BASE_URL } from '@/static/env'
-import { CustomError } from '@/utils/custom-error'
+import { ProjectDto } from '@schemas/project-schema'
+import { BASE_URL } from '~static/env'
+import { CustomError } from '@utils/custom-error'
 import { cookies } from 'next/headers'
 
 export const getProjectsById = async (

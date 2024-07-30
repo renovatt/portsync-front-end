@@ -23,7 +23,7 @@ export const config = {
     '/',
     '/signin/:path*',
     '/projects/:path*',
-    '/create/:path*',
-    '/edit/:path*',
+    '/stacks/:path*',
+    '/refresh-key/:path*',
   ],
 }

@@ -15,4 +15,8 @@ export const routes = [
     path: '/projects',
     name: 'Meus projetos',
   },
+  {
+    path: '/refresh-key',
+    name: 'Gerenciar API KEY',
+  },
 ]

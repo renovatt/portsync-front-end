@@ -25,11 +25,10 @@ export default function CardProject({
         />
       )}
 
-      <div className="relative flex h-52 w-32 animate-fade-right flex-col items-start justify-center space-y-5 overflow-hidden rounded-xl border px-4 md:w-56">
+      <div className="relative flex h-48 w-32 animate-fade-right flex-col items-start justify-center space-y-5 overflow-hidden rounded-xl border px-4 md:w-56">
         <div className="absolute right-4 top-4 flex flex-col items-center justify-center space-y-4">
           <CardIconDropdown openModal={openModal} id={id as string} />
         </div>
-        <span className="font-semibold text-muted-foreground">{position}</span>
         <figure>
           <Image
             src={bannerUrl}
@@ -39,8 +38,11 @@ export default function CardProject({
             className="size-10 rounded-xl object-cover md:size-16"
           />
         </figure>
-        <div className="flex flex-col items-start justify-center space-y-2">
-          <h2 className="line-clamp-1 text-sm font-bold text-primary md:text-base">
+        <div className="flex flex-col items-start justify-center space-y-1">
+          <span className="text-xs text-muted-foreground">
+            Posição: {position}
+          </span>
+          <h2 className="line-clamp-1 text-sm font-bold text-primary">
             {name}
           </h2>
           <p className="w-24 truncate text-xs text-muted-foreground md:w-48">

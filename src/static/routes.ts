@@ -1,6 +1,6 @@
 export const routes = [
   {
-    path: '/create',
+    path: '/projects/create',
     name: 'Adicionar projeto',
   },
   {

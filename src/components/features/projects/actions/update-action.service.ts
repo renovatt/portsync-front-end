@@ -1,11 +1,10 @@
 'use server'
 import { cookies } from 'next/headers'
 import { BASE_URL } from '@/static/env'
+import { revalidateTag } from 'next/cache'
 import { CustomError } from '@/utils/custom-error'
 import { ProjectDto } from '@/schemas/project-schema'
 import { ProjectResponseDto } from '@/entities/project-response.dto'
-import { revalidateTag } from 'next/cache'
-import { isErrorMessageDto } from '@/utils/type-guard-error'
 
 export const update = async (
   id: string,
@@ -27,10 +26,6 @@ export const update = async (
 
     const data: ProjectResponseDto = await response.json()
     revalidateTag('projects')
-
-    if (isErrorMessageDto(data)) {
-      throw new CustomError(data.message, data.error, response.status)
-    }
 
     return { ...data, ok: response.ok }
   } catch (error) {

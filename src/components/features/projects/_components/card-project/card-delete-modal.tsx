@@ -5,7 +5,7 @@ import { toast } from '@/components/ui/use-toast'
 import { useState } from 'react'
 import { LoaderCircle } from 'lucide-react'
 import { Cross2Icon } from '@radix-ui/react-icons'
-import { deleteProject } from '../../actions/delete-action.service'
+import { deleteProject } from '../../../projects/actions/delete-action.service'
 
 type DeleteModalProps = {
   projectId: string

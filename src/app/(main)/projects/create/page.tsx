@@ -1,5 +1,5 @@
-import { CreateAndEditProjectForm } from '@/components/features/create-and-edit-project/_components/create-and-edit-project-form'
 import { Metadata } from 'next'
+import { CreateAndEditProjectForm } from '@/components/features/projects/_components/create-and-edit-project-form'
 
 export const metadata: Metadata = {
   title: 'Adicionar',

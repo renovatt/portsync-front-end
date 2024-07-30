@@ -37,7 +37,7 @@ export default function CardIconDropdown({
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem className="cursor-pointer">
-            <Link href={`/edit/${id}`} className="flex w-full">
+            <Link href={`/projects/edit/${id}`} className="flex w-full">
               Editar
               <DropdownMenuShortcut>
                 <FilePenLine className="size-4" />

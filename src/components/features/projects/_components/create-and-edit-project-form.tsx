@@ -108,7 +108,7 @@ export const CreateAndEditProjectForm = ({
           <section className="size-full">
             <div className="mb-4">
               <FormLabel className="text-base font-bold">
-                Adicione um novo projeto
+                {projectId ? 'Atualizar' : 'Criar'}
               </FormLabel>
             </div>
 

@@ -1,5 +1,5 @@
 'use client'
-import { Button } from '@/components/ui/button'
+import { Button } from '@ui/button'
 import {
   Form,
   FormControl,
@@ -7,14 +7,14 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@ui/form'
+import { Input } from '@ui/input'
 import { useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { toast } from '@/components/ui/use-toast'
-import { SignupDto, signupSchema } from '@/schemas/signup-schema'
+import { toast } from '@ui/use-toast'
+import { SignupDto, signupSchema } from '@schemas/signup-schema'
 
 export const SignupForm = () => {
   const form = useForm<SignupDto>({

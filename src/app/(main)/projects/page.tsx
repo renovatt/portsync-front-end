@@ -1,12 +1,12 @@
 import { Suspense } from 'react'
-import { ShieldX } from 'lucide-react'
-import { CustomError } from '@/utils/custom-error'
-import { getProjects } from '@/services/get-project.service'
-import Loader from '@/components/@globals/_components/loader'
-import ErrorMessage from '@/components/@globals/_components/error-message'
-import { ProjectResponseDto } from '@/entities/project-response.dto'
-import CardProject from '@/components/features/create-and-edit-project/_components/card-project/card-project'
 import { Metadata } from 'next'
+import { ShieldX } from 'lucide-react'
+import { CustomError } from '@utils/custom-error'
+import Loader from '@globals/_components/loader'
+import ErrorMessage from '@globals/_components/error-message'
+import { ProjectResponseDto } from '@entities/project-response.dto'
+import { getProjects } from '@features/projects/actions/get-projects-action.service'
+import CardProject from '@features/projects/_components/card-project/card-project'
 
 export const metadata: Metadata = {
   title: 'Projetos',

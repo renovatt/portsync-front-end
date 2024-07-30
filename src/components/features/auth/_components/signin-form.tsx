@@ -1,5 +1,5 @@
 'use client'
-import { Button } from '@/components/ui/button'
+import { Button } from '@ui/button'
 import {
   Form,
   FormControl,
@@ -7,22 +7,25 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+} from '@ui/form'
+import { Input } from '@ui/input'
 import { useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import { toast } from '@/components/ui/use-toast'
-import { SigninDto, signinSchema } from '@/schemas/signin-schema'
+import { toast } from '@ui/use-toast'
+import { SigninDto, signinSchema } from '@schemas/signin-schema'
 import { signin } from '../actions/signin-action.service'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { LoaderCircle } from 'lucide-react'
+import { Eye, EyeOff, LoaderCircle } from 'lucide-react'
+import { useToggle } from '@hooks/use-toggle'
 
 export const SigninForm = () => {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+
+  const { isOpen, toggleModal } = useToggle()
 
   const form = useForm<SigninDto>({
     resolver: zodResolver(signinSchema),
@@ -79,11 +82,24 @@ export const SigninForm = () => {
             <FormItem className="w-full">
               <FormLabel>Senha</FormLabel>
               <FormControl>
-                <Input
-                  placeholder="Digite sua senha"
-                  type="password"
-                  {...field}
-                />
+                <div className="relative flex">
+                  <Input
+                    placeholder="Digite sua senha"
+                    type={isOpen ? 'text' : 'password'}
+                    {...field}
+                  />
+                  {isOpen ? (
+                    <Eye
+                      onClick={toggleModal}
+                      className="absolute right-4 top-1/2 size-5 -translate-y-1/2 cursor-pointer text-muted-foreground"
+                    />
+                  ) : (
+                    <EyeOff
+                      onClick={toggleModal}
+                      className="absolute right-4 top-1/2 size-5 -translate-y-1/2 cursor-pointer text-muted-foreground"
+                    />
+                  )}
+                </div>
               </FormControl>
               <div className="h-5">
                 <FormMessage />

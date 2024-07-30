@@ -1,5 +1,5 @@
 'use client'
-import { Button } from '@/components/ui/button'
+import { Button } from '@ui/button'
 
 import {
   DropdownMenuShortcut,
@@ -10,17 +10,19 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+} from '@ui/dropdown-menu'
+import { Avatar, AvatarFallback, AvatarImage } from '@ui/avatar'
 import { LogOut } from 'lucide-react'
-import { logout } from '../actions/logout-action.service'
+import { signout } from '../actions/signout-action.service'
 import { useTheme } from 'next-themes'
+import { useAuth } from '@hooks/use-auth'
 
 export default function UserNav() {
+  const { user } = useAuth()
   const { setTheme } = useTheme()
 
   const handleLogout = async () => {
-    await logout()
+    await signout()
   }
 
   return (
@@ -40,9 +42,9 @@ export default function UserNav() {
       <DropdownMenuContent className="mt-2 w-56" align="end">
         <DropdownMenuLabel>
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">Will</p>
+            <p className="text-sm font-medium leading-none">{user?.name}</p>
             <p className="text-xs leading-none text-muted-foreground">
-              x@gmail.com
+              {user?.email}
             </p>
           </div>
         </DropdownMenuLabel>

@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
 import { Bolt } from 'lucide-react'
-import { Separator } from '@/components/ui/separator'
-import { SigninForm } from '@/components/features/auth/_components/signin-form'
-import GithubIcon from '@/components/@globals/static/icons/github-icon'
-import LinkedinIcon from '@/components/@globals/static/icons/linkedin-icon'
+import { Separator } from '@ui/separator'
+import { SigninForm } from '@features/auth/_components/signin-form'
+import GithubIcon from '@globals/static/icons/github-icon'
+import LinkedinIcon from '@globals/static/icons/linkedin-icon'
 import Link from 'next/link'
 
 export const metadata: Metadata = {

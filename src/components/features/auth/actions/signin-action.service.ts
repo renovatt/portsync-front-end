@@ -1,11 +1,10 @@
 'use server'
 import { cookies } from 'next/headers'
-import { BASE_URL, API_KEY } from '@/static/env'
-import { CustomError } from '@/utils/custom-error'
-import { SigninDto } from '@/schemas/signin-schema'
-import { isErrorMessageDto } from '@/utils/type-guard-error'
-import { SigninResponseDto } from '@/entities/signin-response.dto'
-import { decode } from 'jsonwebtoken'
+import { BASE_URL } from '~static/env'
+import { CustomError } from '@utils/custom-error'
+import { SigninDto } from '@schemas/signin-schema'
+import { isErrorMessageDto } from '@utils/type-guard-error'
+import { SigninResponseDto } from '@entities/signin-response.dto'
 
 export const signin = async (
   signinData: SigninDto,
@@ -14,7 +13,6 @@ export const signin = async (
     const response = await fetch(`${BASE_URL}/auth/signin`, {
       method: 'POST',
       headers: {
-        'x-api-key': API_KEY,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(signinData),
@@ -26,8 +24,6 @@ export const signin = async (
       throw new CustomError(data.message, data.error, response.status)
     }
 
-    const userId = decode(data.accessToken ?? '')?.sub as string
-
     cookies().set('@access-token', data.accessToken, {
       httpOnly: true,
       secure: true,
@@ -35,7 +31,7 @@ export const signin = async (
       maxAge: 60 * 60 * 8,
     })
 
-    cookies().set('@user', userId, {
+    cookies().set('@api-key', data.apiKey, {
       secure: true,
       sameSite: 'lax',
       maxAge: 60 * 60 * 8,

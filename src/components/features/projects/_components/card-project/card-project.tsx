@@ -3,7 +3,8 @@ import Image from 'next/image'
 import { ProjectDto } from '@/schemas/project-schema'
 import CardIconDropdown from './card-icon-dropdown'
 import { useToggle } from '@/hooks/use-toggle'
-import CardDeleteModal from './card-delete-modal'
+import DeleteModal from '@/components/@globals/_components/delete-modal'
+import { deleteProject } from '../../actions/delete-action.service'
 
 export default function CardProject({
   id,
@@ -17,7 +18,11 @@ export default function CardProject({
   return (
     <>
       {isOpen && (
-        <CardDeleteModal closeModal={closeModal} projectId={id as string} />
+        <DeleteModal
+          actionDelete={deleteProject}
+          closeModal={closeModal}
+          id={id as string}
+        />
       )}
 
       <div className="relative flex h-52 w-32 animate-fade-right flex-col items-start justify-center space-y-5 overflow-hidden rounded-xl border px-4 md:w-56">

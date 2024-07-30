@@ -68,12 +68,11 @@ export default function DeleteModal({
                 onClick={handleDelete}
               >
                 {isLoading ? (
-                  <span className="flex items-center gap-2">
+                  <span className="flex w-14 items-center justify-center gap-2">
                     <LoaderCircle className="animate-spin" />
-                    Excluindo...
                   </span>
                 ) : (
-                  <span>Excluir</span>
+                  <span className="w-14">Excluir</span>
                 )}
               </Button>
             </div>

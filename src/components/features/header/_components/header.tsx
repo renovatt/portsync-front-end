@@ -34,12 +34,12 @@ export default function Header() {
               {isIdRoute ? (
                 <>
                   <h2 className="font-bold">Editar projeto</h2>
-                  <span className="rounded-md border p-2 text-xs">
+                  <span className="hidden rounded-md border p-2 text-xs md:block">
                     /{user.name}/projects-public/{id}
                   </span>
                 </>
               ) : (
-                <span className="rounded-md border p-2 text-xs">
+                <span className="hidden rounded-md border p-2 text-xs md:block">
                   /{user.name}
                   {pathname}-public
                 </span>

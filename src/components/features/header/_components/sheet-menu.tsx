@@ -30,11 +30,15 @@ export default function SheetMenu() {
         <div className="grid gap-4 py-4">
           <nav>
             <ul className="flex w-full flex-col items-start justify-center gap-3">
-              {routes.map(({ name, path }) => (
+              {routes.map(({ name, path, icon: Icon }) => (
                 <li key={path} className="w-full">
                   <Link href={path}>
-                    <Button variant="outline" className="w-full">
+                    <Button
+                      variant="outline"
+                      className="flex w-full items-center justify-between gap-4 px-10"
+                    >
                       {name}
+                      <Icon className="size-5 text-accent-foreground" />
                     </Button>
                   </Link>
                 </li>

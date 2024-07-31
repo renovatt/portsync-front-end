@@ -25,6 +25,7 @@
 ![Web-5](/public/imgs/web-5.png)
 ![Web-6](/public/imgs/web-6.png)
 ![Web-7](/public/imgs/web-7.png)
+![Web-7](/public/imgs/web-7.5.png)
 ![Web-8](/public/imgs/web-8.png)
 
 ## 🛠️ Tecnologias

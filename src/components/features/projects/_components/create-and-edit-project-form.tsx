@@ -45,7 +45,7 @@ export const CreateAndEditProjectForm = ({
           githubUrl: 'https://github.com/renovatt',
           stacks: [
             {
-              iconUrl: `https://skillicons.dev/icons?i=${stacks[20].id}`,
+              iconUrl: `https://skillicons.dev/icons?i=${stacks[129].id}`,
             },
           ],
         },
